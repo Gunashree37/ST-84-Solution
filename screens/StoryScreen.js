@@ -13,7 +13,8 @@ import {
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { RFValue } from "react-native-responsive-fontsize";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import * as Speech from "expo-speech";
+
+
 
 import AppLoading from "expo-app-loading";
 import * as Font from "expo-font";
@@ -27,8 +28,9 @@ export default class StoryScreen extends Component {
     super(props);
     this.state = {
       fontsLoaded: false,
-      speakerColor: "gray",
-      speakerIcon: "volume-high-outline"
+     
+      
+      
     };
   }
 
@@ -41,20 +43,12 @@ export default class StoryScreen extends Component {
     this._loadFontsAsync();
   }
 
-  async initiateTTS(title, author, story, moral) {
-    const current_color = this.state.speakerColor;
-    this.setState({
-      speakerColor: current_color === "gray" ? "#ee8249" : "gray"
-    });
-    if (current_color === "gray") {
-      Speech.speak(`${title} by ${author}`);
-      Speech.speak(story);
-      Speech.speak("The moral of the story is!");
-      Speech.speak(moral);
-    } else {
-      Speech.stop();
-    }
-  }
+ 
+  
+  
+  
+  
+  
 
   render() {
     if (!this.props.route.params) {
